@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scientific Paper Figure"
+  short_description: "Create editable publication-ready scientific figures"
+  default_prompt: "Use $scientific-paper-figure to create an editable scientific figure in Figma from my paper content."

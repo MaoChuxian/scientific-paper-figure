@@ -1,0 +1,96 @@
+---
+name: scientific-paper-figure
+description: Create, reconstruct, edit, and audit publication-oriented scientific figures as native, structured, editable Figma objects. Use when Codex needs to turn manuscript or Method text into a workflow, mechanism schematic, model architecture, system/framework diagram, experimental pipeline, multi-panel figure, or graphical-abstract draft; rebuild the scientific communication of a supplied paper figure; modify only a named panel or object in an existing Figma figure; or review and correct scientific semantics, topology, connectors, readability, raster use, and editability. Keep quantitative plots data-driven and use Figma for schematic composition, annotation, and layout.
+---
+
+# Scientific Paper Figure
+
+Create scientific communication in Figma, not a decorated flowchart. Keep reconstructable content native and editable. Treat scientific correctness, structure, rendered appearance, and preservation of user edits as independent requirements.
+
+## Compose With Official Figma Skills
+
+- Load the official `figma-use` skill before every `use_figma` call and follow it for Plugin API mechanics, fonts, Auto Layout, node IDs, atomic errors, and incremental construction.
+- Load the official `figma-create-new-file` skill before creating a file. Reuse a user-provided file whenever possible.
+- Load the official `figma-generate-design` skill for multi-panel composition or a composed view. Apply its inspect-build-validate rhythm without forcing product-UI design-system conventions onto a scientific figure.
+- Use `get_metadata` or equivalent structure inspection plus `get_screenshot` for QA. A successful write call is not evidence that the figure is correct.
+
+Do not restate or bypass official Figma operational guidance.
+
+## Select the Mode
+
+Choose one primary mode while retaining the same QA loop:
+
+1. **Create**: derive a figure from a manuscript section, Method, brief, or concept.
+2. **Reconstruct**: recover the reference's scientific logic and structure as editable objects; read [reconstruction.md](references/reconstruction.md).
+3. **Edit**: inspect the current Figma state, identify the requested region, and preserve everything outside the change set.
+4. **Audit**: inspect without writing first, report findings, and correct only when the user requested correction.
+
+For every mode, read [scientific-planning.md](references/scientific-planning.md). Read [publication-style.md](references/publication-style.md) before fixing visual tokens or preparing final-size output. Read [qa-and-correction.md](references/qa-and-correction.md) before audit, correction, or final approval.
+
+## Establish Ground Truth
+
+1. Inspect all supplied text, figures, equations, legends, journal constraints, data artifacts, and the existing Figma file.
+2. Separate verified facts from inference. Preserve exact terms, symbols, equations, units, directions, stage order, and required panel labels.
+3. Ask one concise question only when an unresolved ambiguity changes scientific meaning, required content, or the output target. Otherwise record a conservative assumption.
+4. Treat the user's latest Figma edits as authoritative unless they conflict with an explicit scientific requirement; surface that conflict instead of silently reverting the edit.
+
+## Produce a Figure Spec
+
+Before drawing, define a compact `figure_spec` using the contract in [scientific-planning.md](references/scientific-planning.md). At minimum capture:
+
+- one-sentence scientific message and intended audience;
+- inputs, processes, novelty, outputs, validation/evidence, and reading order;
+- exact-label inventory and scientific topology;
+- panels/regions with stable semantic IDs, hierarchy, bounds, and acceptance conditions;
+- visual grammar, connector semantics, data-plot handoffs, and raster declarations;
+- style source, target aspect ratio, final-use constraints, ambiguity list, and preserve set.
+
+Do not map manuscript paragraphs directly to boxes. Compress prose into entities, transformations, relationships, evidence, and comparisons.
+
+## Separate Data From Schematic Work
+
+- Generate scatter plots, heatmaps, SHAP plots, parity plots, learning curves, error bars, and other quantitative charts from real data in Python, Matplotlib, Origin, or the user's plotting tool.
+- Import quantitative results as SVG/PDF/vector artifacts when supported, then add editable panel labels, legends, callouts, and composition in Figma.
+- Never fabricate quantitative geometry from prose or redraw a data plot by eye when source data or an existing vector artifact is available.
+- Retain raster only for scientifically irreducible evidence such as microscopy, photographs, or complex measured textures. Keep titles, borders, scale-bar labels, arrows, legends, and annotations as separate editable objects.
+
+## Construct Incrementally
+
+1. Inspect the target page and nearby conventions before adding nodes.
+2. Create or identify one top-level figure frame with a semantic name. Establish margins, panel grid, reading order, shared anchors, and reserved connector lanes.
+3. Build one logical panel or region per major construction step. Use native text, shapes, vectors, lines, frames, and Auto Layout where structurally appropriate.
+4. Name important nodes by scientific role, for example `panel-a/data-input`, `stage/feature-engineering`, or `connector/training-to-evaluation`. Avoid names such as `Rectangle 42` for meaningful objects.
+5. Use components or instances for repeated motifs only when repetition is real and future synchronized editing is useful.
+6. Keep panel frames, labels, shapes, connectors, imported data artifacts, and irreducible raster evidence independently selectable.
+7. Return all affected node IDs from writes. Maintain a change set and preserve set across calls.
+8. Validate the new region in whole-figure context and at readable close range before building the next region.
+
+Prefer exact, stable geometry over premature decoration. Do not flatten a panel to hide construction defects.
+
+## Review and Correct
+
+After each major region and after the whole figure:
+
+1. Capture fresh structural evidence and a fresh screenshot.
+2. Audit scientific semantics, topology, geometry, typography, connectors, editability, raster policy, and rendering using [qa-and-correction.md](references/qa-and-correction.md).
+3. Record each defect with region, objects, evidence, correction outcome, preserve set, and measurable acceptance condition.
+4. Diagnose the root cause and apply the smallest responsible object-level change.
+5. Reinspect the changed objects and their neighbors, capture a new screenshot, and rerun the affected checks.
+
+Never approve from stale evidence. Never redraw an accepted panel to fix one label or arrow.
+
+## Completion Gate
+
+Finish only when current evidence shows:
+
+- exact required labels, equations, units, stages, directions, and relationships;
+- a clear answer to what goes in, what happens, what is new, what comes out, and how it is validated;
+- no clipped text, unintended overlap, path-through-object connectors, ambiguous arrowheads, or incoherent crossings;
+- readable hierarchy at the intended publication size and a style consistent with the stated source;
+- native editability for every reconstructable element and explicit justification for every raster object;
+- a meaningful Figma hierarchy with stable panel and object names;
+- no unintended change outside the requested edit region;
+- a fresh whole-figure screenshot plus structural inspection after the final correction.
+
+Report the Figma file/node, construction mode, figure message, panels, data artifacts, raster exceptions, preserved regions, resolved findings, unresolved scientific ambiguities, and final QA verdict.
+
