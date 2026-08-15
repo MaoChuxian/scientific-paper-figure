@@ -37,9 +37,17 @@ Rendered evidence may come from a backend screenshot, a successful regional expo
 
 ### Figwright Render Recovery
 
+Before every Figwright render, confirm that the Figma plugin is on the Page containing the requested nodes and navigate to that Page when necessary. A render of a small off-current-Page node can stall just as long as a whole root; node size alone is not a reliable predictor.
+
 If Figwright rendering stalls after previously working, stop queued render calls and classify the event as backend reliability. Keep the Figma plugin open and restart the local Figwright backend before asking the user to restart the plugin. Expect the old MCP transport to close when its backend process stops, so bind a fresh MCP client before retesting. Verify recovery in this order: end-to-end ping routed to the same file/page, one small regional render, then the required whole-figure render. Do not make another large render the first recovery probe.
 
+Bound retries. After one stalled render, check Page state before repeating. If the target Page is wrong, activate it and retry the small probe once. If the target Page is already correct and the probe still stalls, perform backend recovery; do not queue additional renders.
+
 This sequence recovered Figwright 0.4.0 empirically: a follower replaced the stopped local leader while the plugin stayed open, and a fresh MCP client restored end-to-end ping and regional PNG rendering. Treat backend restart as a recovery attempt, not evidence by itself; retain the fresh structure-plus-render QA gate.
+
+### Figwright Batch Safety
+
+Use `batch` for bounded logical transactions and idempotent global patches. Large mixed create batches can cross the caller timeout while continuing inside the plugin. Treat timeout as unknown commit status, not atomic rollback evidence: inspect the target parent, match semantic name + type + intended geometry/content, remove exact duplicates when present, and issue only the missing delta. Prefer several bounded region batches over one whole-figure batch. Do not retry a create batch until live state is reconciled.
 
 ## Transaction Stickiness and Failover
 

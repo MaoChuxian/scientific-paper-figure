@@ -14,6 +14,8 @@ Capture the whole figure and close views of dense panels or corrected regions. I
 
 Do not substitute metadata for appearance or screenshots for editability.
 
+Use targeted structure reads after local writes: affected objects plus endpoints, parent, and neighbors whose geometry or preserve status can be influenced. Before final approval, perform one whole-root structural audit. Render by risk rather than after every write, and collect a complete defect list before the correction pass so compatible fixes and verification can be batched.
+
 ## Audit Taxonomy
 
 1. **Scientific correctness**: message, exact labels, equations, units, stage order, topology, arrow direction, conditions, and required evidence.

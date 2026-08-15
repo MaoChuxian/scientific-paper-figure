@@ -46,6 +46,12 @@ Before drawing, define a compact `figure_spec` using the contract in [scientific
 
 Do not map manuscript paragraphs directly to boxes. Compress prose into entities, transformations, relationships, evidence, and comparisons.
 
+## Plan Before the First Write
+
+Resolve the scientific topology and the first-pass geometry before creating canvas objects. The working plan must name the panels, principal nodes, connector lanes and anchors, typography and palette tokens, approximate bounds, spacing hierarchy, density, and expected canvas size. For reconstruction, also finish the region/object mapping and visual-grammar inventory first.
+
+Use the plan to form bounded logical transactions such as one panel, one connector family, or one idempotent global patch. Do not discover the figure by alternating one-object writes with design decisions that could have been made from the source and `figure_spec`.
+
 ## Separate Data From Schematic Work
 
 - Generate scatter plots, heatmaps, SHAP plots, parity plots, learning curves, error bars, and other quantitative charts from real data in Python, Matplotlib, Origin, or the user's plotting tool.
@@ -64,6 +70,10 @@ Do not map manuscript paragraphs directly to boxes. Compress prose into entities
 7. Return all affected node IDs from writes. Maintain a change set and preserve set across calls.
 8. Validate the new region in whole-figure context and at readable close range before building the next region.
 
+Prefer batch writes for independent operations in the same logical transaction, but keep batches bounded by the backend's observed latency and failure semantics. Separate large runs of font-loading text creation, complex SVG import, and styling when a mixed batch could cross a timeout. A timed-out write has unknown commit status until live readback proves otherwise: inspect the intended parent and semantic names, classify completed/missing/duplicate objects, and apply only the missing delta. Never blindly replay a timed-out create batch.
+
+After a successful region write, read back the affected nodes and only the neighbors needed to verify bounds, hierarchy, endpoints, and preservation. Reserve whole-root structural inspection for the final audit or when a local change may have propagated globally.
+
 Prefer exact, stable geometry over premature decoration. Do not flatten a panel to hide construction defects.
 
 ## Review and Correct
@@ -75,6 +85,8 @@ After each major region and after the whole figure:
 3. Record each defect with region, objects, evidence, correction outcome, preserve set, and measurable acceptance condition.
 4. Diagnose the root cause and apply the smallest responsible object-level change.
 5. Reinspect the changed objects and their neighbors, capture fresh rendered evidence, and rerun the affected checks.
+
+Choose render coverage by visual risk. Exact text or registered-token replacement can use structural verification plus a representative visual sample; size, spacing, and resize changes require a regional render; connectors, junctions, wrapping, clipping, compression, and reference-sensitive motifs require an affected-region render. Collect all visible defects in one review pass, batch compatible corrections, and then rerender the corrected regions. Always obtain complete visual coverage before final approval.
 
 Never approve from stale evidence. Never redraw an accepted panel to fix one label or arrow.
 
