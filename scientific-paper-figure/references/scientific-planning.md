@@ -95,6 +95,10 @@ topology:
     relation: process | causal | data | control | feedback | inhibition | association
     label: optional exact label
     route: intended lane and endpoints
+    source_anchor: optional side or point
+    target_anchor: optional side or point
+    junction: optional stable junction id and merge/branch role
+    arrowhead: target | none
 data_artifacts:
   - panel: stable panel id
     source: real data or supplied vector
@@ -115,10 +119,10 @@ ambiguities: []
 - Keep routes outside unrelated nodes and labels.
 - Separate parallel routes consistently.
 - Use few bends and make branch/merge points explicit.
+- Assign arrowheads to the segment that carries direction; incoming merge segments are normally arrowless when one outgoing arrow defines the merged flow.
 - Reposition nodes before accepting avoidable crossings.
 - Leave clearance for arrowheads and labels at both endpoints.
 
 ## Resolve Missing Information
 
 Ask only when a choice changes scientific meaning, such as whether a line is causal or associative, whether a stage occurs only during training, or which condition is the control. For visual choices without a specified constraint, use a conservative academic default and record the assumption.
-

@@ -74,6 +74,11 @@ Never replace a panel to fix one arrow. Never rebuild the whole figure to fix on
 
 Confirm source, target, relationship type, direction, and intended lane. Move nodes only when routing cannot be fixed cleanly. Preserve approved node geometry where possible. Recheck the route after any node movement.
 
+- For nested nodes, verify endpoint anchors in page/global coordinates rather than assuming parent-local coordinates.
+- For every branch or merge junction, count incoming paths, outgoing paths, and arrowheads; keep markers and arrowheads from occluding one another.
+- Compare line caps, joins, bend radii, stroke classes, and arrowhead treatment with neighboring connectors of the same semantic class.
+- Capture a close render with enough effective resolution to distinguish stroke joins, endpoints, and arrowheads; never approve a connector correction from a downsampled whole-figure render alone.
+
 ### Uneven repeated objects
 
 Make equal-role objects equal in size, align the intended edge or center, preserve outer anchors, distribute consistently, and then recheck connectors and labels.
@@ -104,4 +109,3 @@ Approve only when:
 - the whole-figure render remains coherent after local corrections.
 
 Report warnings only for genuine source ambiguity or an explicitly accepted limitation; do not use warnings to excuse correctable defects.
-

@@ -47,6 +47,11 @@ Figma assertions:
 - training-only loss path is visually and textually marked;
 - `tensile strength` and `wavelength regions` remain exact text;
 - the validation split is separate from the predictor output path;
+- spectra and composition routes start at the right-side centers of their respective cards;
+- spectral preprocessing applies only to spectra;
+- the two modality paths form one explicit junction before fusion;
+- incoming junction paths are arrowless and exactly one outgoing arrow enters fusion;
+- same-class connector bends, caps, and joins are visually consistent, with no junction occlusion;
 - no paragraph is pasted into a box.
 
 ## C. Reconstruction
