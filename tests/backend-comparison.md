@@ -43,4 +43,4 @@ Scores are 0-5 and reflect only observed evidence; untested rows are not treated
 
 Figwright is the **Recommended default backend** for local scientific construction and local correction, based on the completed native-object, read-back, render, manual-edit, and minimal-correction run. TalkToFigma is a **Recommended secondary backend** for direct manipulation and Auto Layout operations: its scientific construction, edit, and correction path passed, but the larger-root export timed out and should be treated as a reliability limitation. Official Figma remains the control and fallback, but Starter MCP quota makes it unsuitable for repeated local evaluation runs.
 
-No change to `scientific-paper-figure/SKILL.md` is justified by this evidence yet. The backend-neutral contract remains the safer integration boundary.
+The evidence justifies only a small orchestration refactor: `scientific-paper-figure/SKILL.md` now selects a backend-neutral capability contract and makes official Figma skills conditional. Scientific planning, figure specification, publication rules, QA taxonomy, preserve sets, and minimal-delta correction remain unchanged.

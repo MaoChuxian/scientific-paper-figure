@@ -6,6 +6,7 @@
 - `quick_validate.py` passed: `Skill is valid!`.
 - Frontmatter contains only valid required metadata, the description is 673 characters, and no TODO placeholders remain.
 - `agents/openai.yaml` contains a 52-character UI description and a default prompt that explicitly names `$scientific-paper-figure`.
+- The backend-neutral orchestration refactor passed `quick_validate.py` on 2026-08-15 (`Skill is valid!`); `SKILL.md` remains 65 measured nonblank/content lines and delegates backend mechanics to `references/figma-backends.md`.
 - Five replayable acceptance scenarios were defined in [scenarios.md](scenarios.md), including expected structure and QA assertions.
 - Research covered the installed official Figma Skills plus Scientific Illustrator, AutoFigure-Edit, paper-craft-skills, codex-paper-figure-skill, drawio-mcp, FigMirror, and an additional GitHub search.
 - Figma authentication was restored and a live test file was created: [Scientific Paper Figure Skill Tests](https://www.figma.com/design/NiVmDGQL0iO1FtSpWsoUCH).

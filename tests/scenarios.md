@@ -69,7 +69,7 @@ Figma assertions:
 - every reconstructed region has stable semantic names;
 - no whole-panel screenshot is used as a shortcut;
 - raster objects, if any, carry a reason and have editable overlays rebuilt;
-- reference comparison uses a fresh screenshot after each region and at whole-figure completion.
+- reference comparison uses fresh rendered evidence after each region and at whole-figure completion.
 
 ## D. Local Editing After Manual Figma Changes
 
@@ -123,4 +123,3 @@ Figma assertions:
 - card widths are aligned/distributed without moving unrelated anchors;
 - legend is rebuilt as editable text/shapes;
 - final audit contains zero hard findings.
-

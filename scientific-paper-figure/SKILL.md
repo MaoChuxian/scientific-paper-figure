@@ -7,14 +7,13 @@ description: Create, reconstruct, edit, and audit publication-oriented scientifi
 
 Create scientific communication in Figma, not a decorated flowchart. Keep reconstructable content native and editable. Treat scientific correctness, structure, rendered appearance, and preservation of user edits as independent requirements.
 
-## Compose With Official Figma Skills
+## Bind a Figma Backend
 
-- Load the official `figma-use` skill before every `use_figma` call and follow it for Plugin API mechanics, fonts, Auto Layout, node IDs, atomic errors, and incremental construction.
-- Load the official `figma-create-new-file` skill before creating a file. Reuse a user-provided file whenever possible.
-- Load the official `figma-generate-design` skill for multi-panel composition or a composed view. Apply its inspect-build-validate rhythm without forcing product-UI design-system conventions onto a scientific figure.
-- Use `get_metadata` or equivalent structure inspection plus `get_screenshot` for QA. A successful write call is not evidence that the figure is correct.
+Read [figma-backends.md](references/figma-backends.md), respect an explicit backend choice, and otherwise prefer Figwright. Bind one backend before Figma construction, editing, or correction and request capabilities rather than backend-specific tool names throughout the scientific workflow.
 
-Do not restate or bypass official Figma operational guidance.
+Load and follow the official `figma-use`, `figma-create-new-file`, and `figma-generate-design` skills only when Official Figma is selected and their documented trigger applies. Keep the backend sticky for each write transaction; follow the reference's recovery sequence before any failover.
+
+Before changing this Skill in response to a failure, attribute the failure using the reference taxonomy. Do not alter scientific logic to compensate for a backend defect.
 
 ## Select the Mode
 
@@ -71,11 +70,11 @@ Prefer exact, stable geometry over premature decoration. Do not flatten a panel 
 
 After each major region and after the whole figure:
 
-1. Capture fresh structural evidence and a fresh screenshot.
+1. Capture fresh structural evidence plus fresh regional and whole-figure rendered evidence.
 2. Audit scientific semantics, topology, geometry, typography, connectors, editability, raster policy, and rendering using [qa-and-correction.md](references/qa-and-correction.md).
 3. Record each defect with region, objects, evidence, correction outcome, preserve set, and measurable acceptance condition.
 4. Diagnose the root cause and apply the smallest responsible object-level change.
-5. Reinspect the changed objects and their neighbors, capture a new screenshot, and rerun the affected checks.
+5. Reinspect the changed objects and their neighbors, capture fresh rendered evidence, and rerun the affected checks.
 
 Never approve from stale evidence. Never redraw an accepted panel to fix one label or arrow.
 
@@ -90,7 +89,6 @@ Finish only when current evidence shows:
 - native editability for every reconstructable element and explicit justification for every raster object;
 - a meaningful Figma hierarchy with stable panel and object names;
 - no unintended change outside the requested edit region;
-- a fresh whole-figure screenshot plus structural inspection after the final correction.
+- a fresh whole-figure render plus structural inspection after the final correction.
 
 Report the Figma file/node, construction mode, figure message, panels, data artifacts, raster exceptions, preserved regions, resolved findings, unresolved scientific ambiguities, and final QA verdict.
-
