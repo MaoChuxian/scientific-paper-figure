@@ -1,42 +1,72 @@
 # Reconstruction
 
-Reconstruct structure and scientific communication, not pixels. Preserve exact scientific content while improving spacing, hierarchy, and consistency when the user has not requested literal visual fidelity.
+Reconstruct scientific communication and its meaningful visual grammar, not pixels. Unless the user requests redesign, preserve reference structure and motifs while limiting improvements to defects that do not change meaning or visual grammar.
 
 ## Inspect Before Building
 
 1. Inspect the highest-resolution reference available, including local crops for small text and connectors.
 2. Record aspect ratio, reading order, panel bounds, labels, equations, units, legend, typography hierarchy, palette roles, connector types, and z-order.
-3. Inventory every visible item as native text, shape/vector, connector/line, quantitative plot, repeated motif, or irreducible raster evidence.
-4. Mark unreadable text, hidden endpoints, uncertain arrow direction, and ambiguous grouping. Do not invent missing scientific content.
-5. Inspect the destination Figma file and establish a preserve set before writing.
+3. Inventory the reference visual grammar: outer and panel boundaries, stage indicators, semantic containers, distinctive shapes, repeated motifs, title bars, branch/merge markers, connector and line styles, shape families, typography class, palette roles, and density/whitespace character.
+4. Inventory every visible item as native text, shape/vector, connector/line, quantitative plot, repeated motif, or irreducible raster evidence.
+5. Mark unreadable text, hidden endpoints, uncertain arrow direction, and ambiguous grouping. Do not invent missing scientific content.
+6. Inspect the destination Figma file and establish a preserve set before writing.
 
 ## Choose Fidelity Deliberately
 
-Preserve:
+Must preserve unless redesign is explicit:
 
-- scientific message, entities, stage order, comparisons, equations, labels, units, directions, and evidence;
-- panel identity and reading logic when scientifically meaningful;
-- style features the user explicitly requests or that encode meaning.
+- panel decomposition, stage count/order, scientific and branch/merge topology, relative grouping, semantic containers, connector direction/relation type, exact labels, equations, units, major semantic color roles, relative hierarchy, and panel identity;
+- distinctive visual or scientific motifs and shape grammar, such as a triangular preprocessing motif, energy-level diagram, circular feedback loop, nested mechanism, or continuous analysis band;
+- the major typography class when identifiable and the reference's meaningful density.
 
-Allow improvement unless prohibited:
+May improve without changing meaning or visual grammar:
 
-- spacing, alignment, text boxes, routing, hierarchy, consistency, accessibility, and grouping;
+- alignment, equal spacing, whitespace, text wrapping, clipping, minor sizing, line cleanliness, connector smoothness, minor color normalization, legibility, and source-artwork inconsistencies;
 - replacement of decorative raster labels/arrows/frames with native objects;
 - simplification of incidental decoration that does not carry scientific meaning.
 
-Do not trace a published figure pixel for pixel when a clearer original arrangement communicates the same science. Retain attribution and licensing notes for third-party assets when applicable.
+Must not invent unless redesign is explicit:
+
+- new semantic containers or grouping, new arrows or semantic colors, or a different panel hierarchy;
+- a generic card in place of a distinctive shape;
+- a stronger causal relation in place of a weak/associative relation;
+- aesthetic normalization that changes grouping, branch/merge meaning, or turns every object into a rounded rectangle.
+
+Do not pixel-trace incidental imperfections. Retain attribution and licensing notes for third-party assets when applicable.
 
 ## Rebuild in Regions
 
 Define a `reconstruction_spec` by extending the standard `figure_spec` with:
 
 - reference dimensions and coordinate mapping;
+- a compact fidelity declaration made before drawing;
+- the visual grammar inventory and any uncertain grammar;
 - region bounds and construction order;
 - source-to-Figma object mapping;
 - exact text/transcription status;
 - connector source, target, direction, route, and confidence;
 - raster decomposition decisions;
 - preserve list and local acceptance condition.
+
+Use a declaration such as:
+
+```yaml
+reference_fidelity:
+  topology: exact
+  labels: exact
+  equations: exact
+  units: exact
+  panel_structure: high
+  grouping: high
+  shape_grammar: high
+  palette: high | approximate
+  typography: high | approximate
+  layout: high | medium
+  density: high | approximate
+  allowed_improvements: [alignment, spacing, clipping, legibility, connector cleanliness]
+```
+
+Adjust levels to the request and source quality. Any departure outside `allowed_improvements` requires explicit redesign authority or a recorded scientific/source constraint.
 
 Build backgrounds and panel frames first, then scientific objects, labels, connectors, legends, and annotations. Validate each region against both its reference crop and the complete figure.
 
@@ -69,5 +99,6 @@ Route connectors after principal nodes are stable. Recheck endpoints after align
 - Use close views for exact text, equations, arrowheads, clipping, small annotations, and raster boundaries.
 - Compare the current render, not a remembered or stale screenshot.
 
-Prefer semantic correctness over superficial similarity whenever the two conflict, and report the conflict.
+Audit reference correspondence as its own gate: check for missing motifs; invented containers; altered grouping, shape class, panel hierarchy, connector grammar, branch/merge structure, semantic colors, typography class, or density; unjustified whitespace expansion; and omitted meaningful borders, bands, or stage indicators. Exact text, valid arrows, clean layout, and editability are necessary but do not by themselves establish reconstruction fidelity.
 
+Prefer semantic correctness over superficial similarity whenever the two conflict, and report the conflict rather than silently redesigning.

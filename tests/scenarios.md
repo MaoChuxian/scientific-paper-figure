@@ -64,16 +64,23 @@ Reference fixture:
 Expected behavior:
 
 - inspect the reference at far and close views;
-- record a region/object mapping and ambiguity list before writing;
+- record a region/object mapping, ambiguity list, fidelity declaration, and visual grammar inventory before writing;
 - rebuild text, panel frames, arrows, legends, and regular plots as native objects;
 - retain only irreducible image fields as atomic raster objects;
-- preserve exact labels and relationship direction while allowing clearer spacing.
+- preserve exact labels, relationship direction, panel hierarchy, relative grouping, distinctive motifs and shape grammar, major semantic colors, reference-compatible typography class, and meaningful density;
+- limit unrequested improvements to spacing, alignment, clipping, readability, and connector cleanliness.
 
 Figma assertions:
 
 - every reconstructed region has stable semantic names;
 - no whole-panel screenshot is used as a shortcut;
 - raster objects, if any, carry a reason and have editable overlays rebuilt;
+- distinctive motifs remain recognizable and no unjustified semantic containers or grouping are invented;
+- typography class is reference-compatible and effective type is checked at the declared publication dimensions, or the missing target dimensions are recorded as a conditional QA gap;
+- major semantic colors are preserved or explicitly recorded as approximations; the palette uses registered HEX values and passes recorded contrast checks;
+- panel hierarchy and connector/branch/merge grammar remain faithful;
+- information density is not arbitrarily transformed into a spacious UI/card layout;
+- native editability remains intact and any change outside the permitted improvement list is explicitly authorized;
 - reference comparison uses fresh rendered evidence after each region and at whole-figure completion.
 
 ## D. Local Editing After Manual Figma Changes

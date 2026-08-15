@@ -19,12 +19,16 @@ Do not substitute metadata for appearance or screenshots for editability.
 1. **Scientific correctness**: message, exact labels, equations, units, stage order, topology, arrow direction, conditions, and required evidence.
 2. **Information compression**: clear inputs, mechanism, novelty, outputs, and validation without prose copied into boxes.
 3. **Geometry**: alignment, spacing, repeated dimensions, panel balance, whitespace, and bounds.
-4. **Typography**: hierarchy, wrapping, final-size legibility, font consistency, and clipping.
+4. **Typography**: effective size at final publication dimensions, minimum final point size, font family/profile consistency, reference typography-class fidelity, hierarchy, wrapping, and clipping.
 5. **Connectors**: relation grammar, endpoint clearance, crossings, backtracking, path-through-object, label intersection, and branch clarity.
 6. **Editability**: native text/shapes/connectors, meaningful hierarchy, stable names, useful groups/components, and no unjustified flattening.
 7. **Raster policy**: irreducibility, atomic fields, tight crops, and editable overlays.
 8. **Rendering**: blank/missing assets, clipping, unintended overlap, occlusion, inconsistent styles, and export bounds.
 9. **Change containment**: preservation of manual edits and regions outside the requested change set.
+10. **Palette**: registered-HEX compliance, semantic-role reuse, contrast, unnecessary proliferation, unauthorized colors, color-only encoding, and reference palette fidelity.
+11. **Reference correspondence**: panel hierarchy, relative grouping, meaningful borders/bands/stage indicators, distinctive motifs and shapes, connector/branch/merge grammar, typography class, palette roles, information density, and absence of invented semantic structure.
+
+For automated contrast QA, enumerate normal-text/background pairs and essential boundary/adjacent-color pairs, calculate standard sRGB relative luminance, and compare `(lighter + 0.05) / (darker + 0.05)`. Target at least 4.5:1 for normal text and 3:1 for essential non-text boundaries. Treat failures as QA findings while distinguishing faithful reconstruction from an optional accessible variant.
 
 ## Finding Contract
 
@@ -34,7 +38,7 @@ Record one defect per finding:
 finding_id: stable id
 region: stable panel/region id
 objects: [exact names or node ids]
-category: scientific | compression | geometry | typography | connector | editability | raster | rendering | containment
+category: scientific | compression | geometry | typography | connector | editability | raster | rendering | containment | palette | reference-correspondence
 severity: hard | warning
 evidence: measurable structure or visible observation
 root_cause: concise diagnosis if known
@@ -54,6 +58,8 @@ Treat these as hard failures:
 - reconstructable labels, arrows, frames, legends, axes, or regular plots flattened into raster;
 - unexplained composite raster evidence;
 - unintended edits outside the requested region.
+
+In reconstruction mode, also treat an invented semantic container, altered panel/branch/merge hierarchy, missing scientifically or compositionally distinctive motif, or unjustified relation/shape-grammar change as hard. Record lesser typography, palette, or density deviations as hard when the fidelity contract requires exact/high correspondence; otherwise record a warning with the declared approximation.
 
 ## Minimal-Delta Correction
 
@@ -101,8 +107,10 @@ Approve only when:
 
 - every hard finding is resolved with fresh evidence;
 - exact scientific content and topology pass;
-- essential text is readable and unclipped at intended size;
+- essential text is readable, unclipped, and above the declared minimum at intended size;
 - no unintended overlap or incoherent connector path remains;
+- every color is registered or explicitly justified, semantic roles are consistent, contrast targets are checked, and important distinctions do not depend on color alone;
+- reconstruction mode passes the declared visual-grammar and reference-correspondence contract without invented semantic structure;
 - every reconstructable element is editable and every raster exception is justified;
 - stable semantic names and meaningful panel hierarchy remain;
 - the preserve set is unchanged except for explicitly approved effects;

@@ -75,7 +75,30 @@ style_source: user | journal | reference | existing-file | default
 target:
   aspect_ratio: value or source
   final_width: value and unit if known
+  final_height: value and unit if known
+  column_mode: single | double | full-page | screen | other
+  final_use: print | screen | both
   export: Figma plus requested formats
+publication:
+  publisher_or_profile: venue name, custom brief, or unspecified
+  target_width_mm: value if known
+  target_height_mm: value if known
+typography:
+  profile: classic-paper | modern-paper | user-preferred | reference
+  family: exact family or approved fallback
+  body_final_pt: value or range
+  secondary_final_pt: value or range
+  section_title_final_pt: value or range
+  panel_label_final_pt: value or range
+  minimum_final_pt: hard floor for essential text
+palette:
+  source: reference | journal | user | custom | amfe | colorblind-safe
+  locked: true
+  neutral_text: registered HEX
+  background: registered HEX
+  semantic_roles: {role: registered HEX}
+  allowed_hex: []
+  max_semantic_accents: value
 exact_content:
   labels: []
   equations: []
@@ -111,6 +134,8 @@ raster:
 preserve: []
 ambiguities: []
 ```
+
+Record intended final dimensions before approving type. If they are unavailable, mark them as unresolved and avoid claiming publication-size compliance. Lock palette values before styling: once `locked` is true, use only registered HEX values unless the working spec records an explicit reference-fidelity, scientific, or user-requested reason.
 
 ## Plan Connectors Before Drawing
 
