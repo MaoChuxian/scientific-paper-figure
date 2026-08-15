@@ -35,6 +35,12 @@ A successful write or transport ping is not QA evidence. Return stable affected 
 
 Rendered evidence may come from a backend screenshot, a successful regional export, or another fresh view of the live figure. It must cover both corrected regions and the whole figure; no specific screenshot/export tool is required.
 
+### Figwright Render Recovery
+
+If Figwright rendering stalls after previously working, stop queued render calls and classify the event as backend reliability. Keep the Figma plugin open and restart the local Figwright backend before asking the user to restart the plugin. Expect the old MCP transport to close when its backend process stops, so bind a fresh MCP client before retesting. Verify recovery in this order: end-to-end ping routed to the same file/page, one small regional render, then the required whole-figure render. Do not make another large render the first recovery probe.
+
+This sequence recovered Figwright 0.4.0 empirically: a follower replaced the stopped local leader while the plugin stayed open, and a fresh MCP client restored end-to-end ping and regional PNG rendering. Treat backend restart as a recovery attempt, not evidence by itself; retain the fresh structure-plus-render QA gate.
+
 ## Transaction Stickiness and Failover
 
 Keep one backend bound from the first write through read-back and correction acceptance. Never silently mix write backends within a construction, edit, or correction transaction.
