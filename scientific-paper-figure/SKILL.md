@@ -42,7 +42,7 @@ Before drawing, define a compact `figure_spec` using the contract in [scientific
 - exact-label inventory and scientific topology;
 - panels/regions with stable semantic IDs, hierarchy, bounds, and acceptance conditions;
 - visual grammar, connector semantics, data-plot handoffs, and raster declarations;
-- style source, target aspect ratio, final-use constraints, ambiguity list, and preserve set.
+- style source, compactness and content-driven sizing intent, target aspect ratio, final-use constraints, ambiguity list, and preserve set.
 
 Do not map manuscript paragraphs directly to boxes. Compress prose into entities, transformations, relationships, evidence, and comparisons.
 

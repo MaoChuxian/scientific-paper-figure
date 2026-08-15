@@ -14,11 +14,16 @@ Do not overwrite a specified or established style with the defaults below.
 
 - Use a white or near-white canvas, dark neutral text, restrained strokes, and a small set of semantic accents.
 - Build hierarchy through position, grouping, whitespace, type weight/size, and then color.
+- Keep scientific layouts compact but readable. Treat large unexplained empty regions, excessive padding, and oversized containers as defects rather than a modern visual style.
 - Keep at most three primary hierarchy levels within one panel.
 - Use consistent geometry for equal-role objects and visibly different geometry for different semantic roles.
 - Prefer direct labels over a legend when repetition does not justify the legend.
 
 Treat all dimensions as tokens derived from canvas and final output, not universal constants. Establish and reuse tokens for outer margin, gutter, node gap, padding, corner treatment, stroke classes, connector classes, and type roles.
+
+Use a hierarchical spacing system: internal object spacing, title-to-content spacing, group spacing, panel padding, and inter-panel spacing must have distinct, consistent roles. Let content and required clearance determine panel and canvas bounds. Whitespace is justified only when it improves hierarchy, grouping, connector routing, readability, panel separation, alignment with a neighboring panel, expected evidence placement, annotation clearance, or deliberate emphasis.
+
+Do not spend publication area on whitespace that does not improve scientific communication. At fixed journal width, excess canvas area forces greater downscaling and reduces effective type and line weight. When two layouts communicate equally well, prefer the more compact one so final-size typography remains larger.
 
 ## Final-Size Readability
 

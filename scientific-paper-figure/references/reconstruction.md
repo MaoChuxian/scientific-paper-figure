@@ -17,7 +17,7 @@ Must preserve unless redesign is explicit:
 
 - panel decomposition, stage count/order, scientific and branch/merge topology, relative grouping, semantic containers, connector direction/relation type, exact labels, equations, units, major semantic color roles, relative hierarchy, and panel identity;
 - distinctive visual or scientific motifs and shape grammar, such as a triangular preprocessing motif, energy-level diagram, circular feedback loop, nested mechanism, or continuous analysis band;
-- the major typography class when identifiable and the reference's meaningful density.
+- the major typography class when identifiable and the reference's approximate information density, compactness, and whitespace character.
 
 May improve without changing meaning or visual grammar:
 
@@ -63,10 +63,14 @@ reference_fidelity:
   typography: high | approximate
   layout: high | medium
   density: high | approximate
+  whitespace_character: preserve | normalize
+  compactness: preserve | improve_conservatively
   allowed_improvements: [alignment, spacing, clipping, legibility, connector cleanliness]
 ```
 
 Adjust levels to the request and source quality. Any departure outside `allowed_improvements` requires explicit redesign authority or a recorded scientific/source constraint.
+
+Preserve approximate content-to-canvas utilization as part of reconstruction fidelity. Do not expand a compact journal figure into a spacious slide or UI layout unless redesign is explicit. `normalize` or `improve_conservatively` permits removing source-artwork inefficiency without collapsing scientific hierarchy; it does not permit arbitrary density expansion or aggressive packing.
 
 Build backgrounds and panel frames first, then scientific objects, labels, connectors, legends, and annotations. Validate each region against both its reference crop and the complete figure.
 

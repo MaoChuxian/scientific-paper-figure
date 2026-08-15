@@ -79,6 +79,17 @@ target:
   column_mode: single | double | full-page | screen | other
   final_use: print | screen | both
   export: Figma plus requested formats
+layout:
+  density: compact | balanced | spacious
+  sizing: content-driven
+  whitespace_policy: justified
+  preserve_reference_density: true | false
+  spacing_hierarchy:
+    internal: relative token or intent
+    title_to_content: relative token or intent
+    group: relative token or intent
+    panel_padding: relative token or intent
+    inter_panel: relative token or intent
 publication:
   publisher_or_profile: venue name, custom brief, or unspecified
   target_width_mm: value if known
@@ -136,6 +147,14 @@ ambiguities: []
 ```
 
 Record intended final dimensions before approving type. If they are unavailable, mark them as unresolved and avoid claiming publication-size compliance. Lock palette values before styling: once `locked` is true, use only registered HEX values unless the working spec records an explicit reference-fidelity, scientific, or user-requested reason.
+
+## Plan Compact Layout
+
+Default scientific figures to compact or balanced density and content-driven sizing. Size each panel from its content bounds, text bounds, connector clearance, and necessary padding; do not choose a large container first and spread sparse content through it. Whitespace must support hierarchy, semantic grouping, connector clearance, readability, panel separation, reference fidelity, or deliberate emphasis. Reduce any major empty region that has no defensible purpose.
+
+Define a consistent spacing hierarchy instead of improvising gaps. Internal object spacing should normally be smaller than group spacing, and group spacing smaller than panel separation; distinguish title-to-content spacing, panel padding, and inter-panel spacing even when their values remain qualitative. Derive the actual tokens from canvas scale, final publication size, typography, reference density, and scientific complexity rather than universal pixel values.
+
+Target the minimum area that preserves readability, hierarchy, semantic grouping, and connector clarity. Prefer shrinking the responsible container before shrinking text, and do not use decorative separation to make a scientific figure resemble a slide or dashboard.
 
 ## Plan Connectors Before Drawing
 
