@@ -48,6 +48,14 @@ Exact before/after JSON equality passed for unchanged input/process frames, junc
 
 Observed connection/recovery and batched-render failures were attributed to backend reliability or the local test harness, not to scientific logic. No `SKILL.md` change is proposed from Scenario B, and Scenario C was not started.
 
+## Scenario C: Reference Reconstruction Correction
+
+Scenario C was re-audited and corrected through Figwright 0.4.0 on 2026-08-15 in `figure b` / `Page 1`, root `3:2` (`reconstruction/model-development-workflow`). The correction restored the distinctive Step 1 dashed triangular preprocessing motif and three downward arrows, Step 2 heading-above-rectangular-block grammar, Step 3 continuous three-column analysis band, and the unframed Step 4 new-source group. Invented visible text `Clean and standardize source records` and `Training controls` was hidden; exact scientific labels and branch/merge topology were preserved.
+
+All 40 text nodes now use Times New Roman. Rail labels are dark, rotated `Step 1`-`Step 4`; a fresh whole render exposed left clipping, and a minimal correction moved only those four labels 42 px right. Final recursive structure read-back contains no IMAGE nodes, and fresh PNG evidence passed for all four regions plus the corrected whole figure under `.evidence/reference-reconstruction-20260815/`.
+
+The retained reference-derived palette was enumerated and locked in the raw audit record. Scientific content, topology, native editability, raster policy, reference motifs/grouping, typography class, connector readability, and current rendered output pass. Root aspect correspondence remains approximate (`1600 x 1100` versus reference `1908 x 1156`) because a global all-node rescale would exceed minimal-delta correction after regions passed. Publication-size typography remains conditional because no venue, physical output dimensions, or column mode was supplied.
+
 The A-E specifications remain replayable after the tool-call quota resets or the Figma plan changes. Do not claim official B-E as live-passing until fresh structure and screenshot evidence is collected. See [backend-comparison.md](backend-comparison.md) for the local-backend decision record.
 
 ## Remaining Limits
