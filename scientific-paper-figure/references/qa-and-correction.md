@@ -10,7 +10,7 @@ Inspect node types, names, hierarchy, bounds, visibility, clipping, text content
 
 ### Rendering
 
-Capture the whole figure and close views of dense panels or corrected regions. Inspect actual text fit, overlap, hierarchy, visual balance, route clarity, arrowheads, and imported artifacts.
+Capture close views of dense panels or corrected regions when their visual risk requires it. Before final approval, capture fresh whole-figure coverage. Inspect actual text fit, overlap, hierarchy, visual balance, route clarity, arrowheads, and imported artifacts.
 
 Do not substitute metadata for appearance or screenshots for editability.
 
@@ -77,7 +77,7 @@ In reconstruction mode, also treat an invented semantic container, altered panel
 4. Order dependent operations: content/object creation, geometry, text fit, connectors, grouping/z-order, then alignment/distribution.
 5. Change in place when possible. Delete and replace only the exact defective object when in-place correction cannot express the fix.
 6. Inspect the changed objects and immediate neighbors structurally.
-7. Capture a fresh close view and whole-figure view.
+7. Capture a fresh affected-region view when the correction has visual risk. Capture a whole-figure view at final approval and after changes that may propagate globally.
 8. Verify the finding's acceptance condition and check for regressions.
 
 Never replace a panel to fix one arrow. Never rebuild the whole figure to fix one panel. Never apply a global style mutation without enumerating all affected approved objects.

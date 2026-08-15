@@ -70,7 +70,7 @@ Use the plan to form bounded logical transactions such as one panel, one connect
 7. Return all affected node IDs from writes. Maintain a change set and preserve set across calls.
 8. Validate the new region in whole-figure context and at readable close range before building the next region.
 
-Prefer batch writes for independent operations in the same logical transaction, but keep batches bounded by the backend's observed latency and failure semantics. Separate large runs of font-loading text creation, complex SVG import, and styling when a mixed batch could cross a timeout. A timed-out write has unknown commit status until live readback proves otherwise: inspect the intended parent and semantic names, classify completed/missing/duplicate objects, and apply only the missing delta. Never blindly replay a timed-out create batch.
+Prefer batch writes for independent operations in the same logical transaction, but keep batches bounded by the backend's observed latency and failure semantics. If a write times out, stop further writes, reconcile the intended region from live state, and apply only the missing delta. Never blindly replay a timed-out create batch; follow the selected backend's timeout protocol.
 
 After a successful region write, read back the affected nodes and only the neighbors needed to verify bounds, hierarchy, endpoints, and preservation. Reserve whole-root structural inspection for the final audit or when a local change may have propagated globally.
 
@@ -78,13 +78,13 @@ Prefer exact, stable geometry over premature decoration. Do not flatten a panel 
 
 ## Review and Correct
 
-After each major region and after the whole figure:
+After each major region, and once more after the whole figure:
 
-1. Capture fresh structural evidence plus fresh regional and whole-figure rendered evidence.
+1. Capture fresh structural evidence. Capture regional rendered evidence when visual risk requires it; reserve whole-figure rendering for final visual coverage or a change that may propagate globally.
 2. Audit scientific semantics, topology, geometry, typography, connectors, editability, raster policy, and rendering using [qa-and-correction.md](references/qa-and-correction.md).
 3. Record each defect with region, objects, evidence, correction outcome, preserve set, and measurable acceptance condition.
 4. Diagnose the root cause and apply the smallest responsible object-level change.
-5. Reinspect the changed objects and their neighbors, capture fresh rendered evidence, and rerun the affected checks.
+5. Reinspect the changed objects and their neighbors, capture the risk-appropriate fresh rendered evidence, and rerun the affected checks.
 
 Choose render coverage by visual risk. Exact text or registered-token replacement can use structural verification plus a representative visual sample; size, spacing, and resize changes require a regional render; connectors, junctions, wrapping, clipping, compression, and reference-sensitive motifs require an affected-region render. Collect all visible defects in one review pass, batch compatible corrections, and then rerender the corrected regions. Always obtain complete visual coverage before final approval.
 

@@ -102,13 +102,22 @@ command = "C:\\Program Files\\nodejs\\npx.cmd"
 args = ["-y", "@figwright/mcp@0.4.0"]
 ```
 
+This MCP entry is the normal Figwright server lifecycle owner. Codex starts and
+connects it as configured; do not run a separate `figwright-start.ps1`, launch a
+second `npx @figwright/mcp` process, or add another process manager before normal
+drawing work. The user only needs Figma Desktop, the target file, and the matching
+Figwright plugin open. Confirm the routed file and active Page with the configured
+MCP session, then proceed.
+
 Download the matching plugin archive from the Figwright GitHub release. In Figma
 Desktop use **Menu -> Plugins -> Development -> Import plugin from manifest...**,
 select its `manifest.json`, then open **Plugins -> Development -> Figwright**.
 
-Verify in this order: end-to-end `ping`, active file/page read-back, one disposable
+For first installation, reconfiguration, or an actual capability failure, verify
+in this order: end-to-end `ping`, active file/page read-back, one disposable
 native-object write/read/delete, one small regional render, and then the required
-whole-figure render. A relay ping alone is not deployment evidence.
+whole-figure render. A relay ping alone is not deployment evidence. Do not repeat
+this deployment smoke test before every ordinary figure task.
 
 ### 5. Configure TalkToFigma 0.3.5 when needed
 
@@ -149,7 +158,7 @@ Figwright source builds use `pnpm 11.21.0`; TalkToFigma uses Bun. Follow each
 upstream repository's lockfile and README rather than committing generated
 dependencies into this repository.
 
-## Current handoff checkpoint
+## Historical handoff checkpoint
 
 As of 2026-08-15, Scenario C is bound to Figwright 0.4.0 in `figure b` / `Page 1`,
 root `3:2` (`reconstruction/model-development-workflow`). The generic compactness
@@ -167,12 +176,14 @@ read-back:
 - panel gaps remain 10 px and typography, labels, palette, and topology were not
   intentionally changed.
 
-Final visual approval is still pending. Figwright structure reads and atomic
-writes worked, but both `get_screenshot` and `save_screenshots` stalled even for a
-small title node after a backend-only restart. On the new device, reopen the
-Figwright plugin, then collect a fresh Step 2 close render and a fresh root render
-before recording the compactness correction as passed. Attribute the observed
-stall to backend/plugin rendering reliability, not to scientific planning.
+At that checkpoint, final visual approval was still pending. Figwright structure
+reads and atomic writes worked, but both `get_screenshot` and `save_screenshots`
+stalled even for a small title node after a backend-only restart. This is retained
+as historical device evidence, not a normal startup instruction or a universal
+Figwright behavior. Current operational handling is defined in
+`scientific-paper-figure/references/figma-backends.md`: check target Page state
+first, use one small probe, and enter bounded backend recovery only when the Page
+is correct and the probe still fails.
 
 ## Migration acceptance checklist
 
