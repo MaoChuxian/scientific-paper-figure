@@ -1,5 +1,17 @@
+# Local upstream clones. Recreate from the pinned revisions in the migration guide.
 .research-repos/
-.tmp/
+
+# Raw MCP logs, renders, and other machine-local validation evidence.
 .evidence/
+
+# Disposable working files.
+.tmp/
+
+# Python caches.
 __pycache__/
 *.pyc
+
+# Common operating-system metadata.
+.DS_Store
+Thumbs.db
+Desktop.ini
