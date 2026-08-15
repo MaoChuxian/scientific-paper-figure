@@ -31,6 +31,16 @@ Local backend evidence:
 - TalkToFigma export retest: with an outer 120-second MCP timeout, a focused 1500x520 root again returned `Error exporting node as image: Request to Figma timed out` after about 30 seconds. Increasing the client timeout does not resolve the backend/plugin export timeout.
 - TalkToFigma preserve-set check: after a controlled socket restart and reconnect on channel `2qf7edgv`, a targeted edit changed only Panel B; before/after metadata for untouched Panel A was byte-equal (`preserveSetStable: true`).
 
+## Scenario B: Paper Method to Figure
+
+Scenario B passed through Figwright 0.4.0 on 2026-08-15. Before drawing, the run recorded entities, processes, inputs, outputs, novelty, evidence, constraints, relationship types, path separation, ambiguities, and a compact `figure_spec` under the Git-ignored `.evidence/scenario-b-method-to-figure/` directory.
+
+The editable Figma result is root `21:112` (`scenario-b/method-to-figure`) in `Scientific Paper Figure Skill Tests` / `Page 1`. It contains an overview, mechanism inset, and independent validation/evidence region. Final structural inspection counted 122 native nodes: 42 frames, 2 rectangles, 38 text nodes, and 40 vector connector children; no IMAGE nodes or IMAGE fills were present. Exact-label read-back included `tensile strength`, `wavelength regions`, `TRAINING ONLY`, and `Held-out batch split`.
+
+Regional read-back and rendered evidence were collected after each logical region. One genuine typography defect was found: the mechanism heading wrapped into its explanatory note. A minimal-delta correction resized only heading node `25:170` from `560 x 30` to `800 x 30`; fresh regional and whole-figure renders then passed. The pre-existing preserve root `1:2` had exact full-JSON equality before and after (`13,852` characters each). Final scientific, compression, topology, visual hierarchy, typography, connector, editability, rendering, and publication-readability checks passed. Raw logs and PNGs remain outside Git; the final render is `.evidence/scenario-b-method-to-figure/renders/audit/21-112.png`.
+
+Observed connection/recovery and batched-render failures were attributed to backend reliability or the local test harness, not to scientific logic. No `SKILL.md` change is proposed from Scenario B, and Scenario C was not started.
+
 The A-E specifications remain replayable after the tool-call quota resets or the Figma plan changes. Do not claim official B-E as live-passing until fresh structure and screenshot evidence is collected. See [backend-comparison.md](backend-comparison.md) for the local-backend decision record.
 
 ## Remaining Limits
