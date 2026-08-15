@@ -13,17 +13,22 @@
 - Test A structure metadata confirmed stable semantic names and independent text, frame, line, polygon, and annotation nodes.
 - Test A visual QA found bidirectional line caps, replaced only the five connector caps with explicit single-end arrowhead objects, then found and corrected reversed arrowhead rotation. The final fresh screenshot showed a left-to-right process path with no clipped labels or route-through-object defects.
 
-## Partial Runtime Block
+## Backend Runtime Results
 
-Figma authentication is now valid. However, the Starter plan reached its MCP tool-call limit when live Test B attempted to create its first frame. The failed `use_figma` call was atomic, so it did not create a partial Test B region. Subsequent metadata calls returned the same plan-limit response.
+Figma authentication is valid. The official Starter plan reached its MCP tool-call limit when live Test B attempted to create its first frame; the failed `use_figma` call was atomic, so it did not create a partial Test B region. This remains an official-control limitation, not a local-backend result.
 
 Live status:
 
 - Test A: passed after two minimal connector corrections.
 - Test B: blocked before construction by the Starter-plan MCP limit.
-- Tests C-E: not yet live-executed because the same limit applies to all Figma MCP calls.
+- Tests C-E: not live-executed through the official backend because the same limit applies to all Figma MCP calls.
 
-The A-E specifications remain replayable after the tool-call quota resets or the Figma plan changes. Do not claim B-E as live-passing until fresh structure and screenshot evidence is collected.
+Local backend evidence:
+
+- Figwright: passed the complete 40-step batch run in the dedicated file, including native creation, read-back, fresh PNG renders, a simulated manual edit, local overlap/clipping correction, and cleanup. Raw evidence is outside Git under `.evidence/backend-eval-20260815/`.
+- TalkToFigma: passed the equivalent read/write/structured-layout/PNG-export smoke sequence and deletion read-back on channel `qyf00z2n`. Full scientific A/D/E parity was not rerun in this checkpoint and remains explicitly untested.
+
+The A-E specifications remain replayable after the tool-call quota resets or the Figma plan changes. Do not claim official B-E as live-passing until fresh structure and screenshot evidence is collected. See [backend-comparison.md](backend-comparison.md) for the local-backend decision record.
 
 ## Remaining Limits
 

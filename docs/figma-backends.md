@@ -1,6 +1,6 @@
 # Figma Backend Deployment Evidence
 
-Status: in progress. This file records observed deployment facts only; it is not a recommendation and does not change `scientific-paper-figure/SKILL.md`.
+Status: deployment and core local-backend evaluation complete on 2026-08-15. This file records observed facts only; it is not a recommendation and does not change `scientific-paper-figure/SKILL.md`.
 
 ## Phase 0: Windows baseline
 
@@ -47,8 +47,8 @@ The Codex config now has distinct local entries named `figwright` and `talk_to_f
 
 | Backend | Server install/build | Local transport check | Plugin | Live Figma read/write |
 | --- | --- | --- | --- | --- |
-| Figwright | installed from `@figwright/mcp 0.4.0`; plugin built from source | passed: `/ping` returned HTTP 200 with `serverVersion=0.4.0`, `plugins=0` | awaiting manual import/open | not started; plugin is not connected |
-| TalkToFigma | Bun `1.3.14`; dependencies installed; `dist/server.js` built | socket server not started yet | awaiting manual import/open | not started |
+| Figwright | installed from `@figwright/mcp 0.4.0`; plugin built from source | passed: e2e ping, metadata, document, and selection reads in the dedicated test file | connected to `Scientific Paper Figure Skill Tests` / `Page 1` | passed; native writes, read-back, screenshots, manual-edit preservation, minimal correction, and cleanup verified |
+| TalkToFigma | Bun `1.3.14`; dependencies installed; `dist/server.js` built | passed: socket server and named channel `qyf00z2n` | connected to the dedicated test file during smoke run | passed for smoke and structured-layout sequence; full A/D/E comparison not rerun in this checkpoint |
 
 The `/ping` result proves only that the Figwright relay process is alive. It does not count as deployment completion under the execution plan because no Figma plugin is connected and no native object has yet been read back or rendered.
 
@@ -70,3 +70,13 @@ cwd = "<TalkToFigma repository>"
 ```
 
 No credentials, tokens, or authentication data were added.
+
+## Live Figwright evidence
+
+The batch run used the dedicated file and completed 40 recorded steps. It created a top-level `backend/scenario-a/figwright` frame with six stage frames, six editable text labels, five connector fixture rectangles, and one annotation. Read-back confirmed stable IDs, parent-child relationships, positions, sizes, and edited text (`SHAP (edited locally)`). A deliberate overlap and clipped annotation were introduced, audited, corrected locally, and read back. PNG renders were saved before and after correction; the final deletion read-back returned `node: null`.
+
+Raw logs and renders are retained outside the repository under `.evidence/backend-eval-20260815/` and are intentionally ignored by Git. The primary run log is `figwright-full-run.log`; rendered evidence includes `figwright-full/10-29.png`.
+
+## Live TalkToFigma evidence
+
+TalkToFigma completed the equivalent native smoke sequence in the same dedicated file: document/selection/design reads, frame and text creation, node read-back, Auto Layout direction/padding/spacing, fill/stroke, hug sizing, move/resize, PNG export, and deletion read-back. The plugin channel was `qyf00z2n`. Full scientific A/D/E parity was not claimed because this checkpoint focused on restoring Figwright and avoiding another manual plugin switch.
