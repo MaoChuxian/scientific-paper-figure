@@ -17,7 +17,7 @@ Evaluation date: 2026-08-15. Official Figma MCP remains unchanged and is the con
 | stable node IDs / read-back | empirically verified | empirically verified | IDs and parent-child metadata |
 | screenshot / export | PNG screenshot empirically verified | empirically verified in smoke; failed on larger Scenario A root | `.evidence/backend-eval-20260815/` |
 | structural QA / visual QA | empirically verified | structural QA empirically verified; visual QA smoke-level only because full export timed out | Read-back plus render evidence |
-| preserve manual edits | empirically verified (`SHAP (edited locally)` and moved stage retained) | edit operations and read-back empirically verified; whole preserve-set diff not isolated | Figwright and Talk full-run logs |
+| preserve manual edits | empirically verified (`SHAP (edited locally)` and moved stage retained) | empirically verified with before/after preserve-set equality on an untouched sibling panel | Figwright and Talk preserve fixtures |
 | minimal correction | empirically verified (overlap and clipped annotation only) | empirically verified (overlap and clipped annotation only) | Both correction fixtures |
 | Starter-compatible / cloud dependency | local relay and plugin; no cloud dependency observed | local socket and plugin; no cloud dependency observed | Deployment notes |
 

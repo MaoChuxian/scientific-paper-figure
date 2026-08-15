@@ -31,7 +31,7 @@ Official Figma skills own Plugin API mechanics, file creation, node construction
 
 ## Local Backend Decision
 
-The 2026-08-15 local evaluation keeps the main Skill backend-neutral. Figwright 0.4.0 is the recommended local default for structured scientific construction and minimal correction: native writes, read-back, fresh PNG renders, manual-edit operations, and local defect correction all passed in the dedicated test file. TalkToFigma 0.3.5 is a recommended secondary backend for direct manipulation and Auto Layout; its native scientific run and correction path passed, but a larger-root PNG export timed out. A controlled socket restart followed by plugin reconnect and a live `get_document_info` read-back passed on channel `2qf7edgv`.
+The 2026-08-15 local evaluation keeps the main Skill backend-neutral. Figwright 0.4.0 is the recommended local default for structured scientific construction and minimal correction: native writes, read-back, fresh PNG renders, manual-edit operations, and local defect correction all passed in the dedicated test file. TalkToFigma 0.3.5 is a recommended secondary backend for direct manipulation and Auto Layout; its native scientific run, correction path, and isolated preserve-set equality check passed, but a larger-root PNG export timed out. A controlled socket restart followed by plugin reconnect and a live `get_document_info` read-back passed on channel `2qf7edgv`.
 
 The official Figma integration remains the control and fallback. Its Starter MCP quota prevented new B-E control runs, so this decision does not claim official parity. No adapter is added yet: the evidence supports a small future capability contract, but not enough stable cross-backend coverage to justify changing `SKILL.md`.
 

@@ -27,6 +27,7 @@ Local backend evidence:
 
 - Figwright: passed the complete 40-step batch run in the dedicated file, including native creation, read-back, fresh PNG renders, a simulated manual edit, local overlap/clipping correction, and cleanup. Raw evidence is outside Git under `.evidence/backend-eval-20260815/`.
 - TalkToFigma: completed a 44-step scientific run on channel `m4omllkl`, including native stage/label construction, structured layout, manual label/stage edits, overlap and clipping correction, and cleanup read-back. The larger-root PNG export timed out; the earlier smoke export remains a separate passed visual-export result. The stale failed-run frames were removed explicitly.
+- TalkToFigma preserve-set check: after a controlled socket restart and reconnect on channel `2qf7edgv`, a targeted edit changed only Panel B; before/after metadata for untouched Panel A was byte-equal (`preserveSetStable: true`).
 
 The A-E specifications remain replayable after the tool-call quota resets or the Figma plan changes. Do not claim official B-E as live-passing until fresh structure and screenshot evidence is collected. See [backend-comparison.md](backend-comparison.md) for the local-backend decision record.
 
