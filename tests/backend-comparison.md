@@ -15,10 +15,10 @@ Evaluation date: 2026-08-15. Official Figma MCP remains unchanged and is the con
 | connectors | documented; fixture rectangles used in batch because direct line construction was not used | documented, not included in this smoke fixture | Scenario A and upstream inventory |
 | batch writes | empirically verified through sequential scenario batch; native batch API not isolated | not tested | Figwright run log |
 | stable node IDs / read-back | empirically verified | empirically verified | IDs and parent-child metadata |
-| screenshot / export | PNG screenshot empirically verified | PNG export empirically verified | `.evidence/backend-eval-20260815/` |
-| structural QA / visual QA | empirically verified | smoke-level empirically verified | Read-back plus fresh renders |
-| preserve manual edits | empirically verified (`SHAP (edited locally)` and moved stage retained) | not tested in this checkpoint | Figwright scenario A/D fixture |
-| minimal correction | empirically verified (overlap and clipped annotation only) | not tested in this checkpoint | Figwright correction fixture |
+| screenshot / export | PNG screenshot empirically verified | empirically verified in smoke; failed on larger Scenario A root | `.evidence/backend-eval-20260815/` |
+| structural QA / visual QA | empirically verified | structural QA empirically verified; visual QA smoke-level only because full export timed out | Read-back plus render evidence |
+| preserve manual edits | empirically verified (`SHAP (edited locally)` and moved stage retained) | edit operations and read-back empirically verified; whole preserve-set diff not isolated | Figwright and Talk full-run logs |
+| minimal correction | empirically verified (overlap and clipped annotation only) | empirically verified (overlap and clipped annotation only) | Both correction fixtures |
 | Starter-compatible / cloud dependency | local relay and plugin; no cloud dependency observed | local socket and plugin; no cloud dependency observed | Deployment notes |
 
 ## Scored decision
@@ -29,10 +29,10 @@ Scores are 0-5 and reflect only observed evidence; untested rows are not treated
 | --- | ---: | ---: | ---: |
 | Scientific figure construction | 20% | 4 | 3 |
 | Editing precision | 15% | 4 | 3 |
-| Visual QA | 15% | 4 | 3 |
+| Visual QA | 15% | 4 | 2 |
 | Structural QA | 10% | 4 | 4 |
-| Manual-edit preservation | 10% | 4 | 2 |
-| Minimal correction | 10% | 4 | 2 |
+| Manual-edit preservation | 10% | 4 | 3 |
+| Minimal correction | 10% | 4 | 3 |
 | Agent/tool ergonomics | 8% | 3 | 3 |
 | Reliability | 7% | 3 | 3 |
 | Community/maintenance | 3% | 3 | 3 |
@@ -41,6 +41,6 @@ Scores are 0-5 and reflect only observed evidence; untested rows are not treated
 
 ## Recommendation
 
-Figwright is the **Recommended default backend** for local scientific construction and local correction, based on the completed native-object, read-back, render, manual-edit, and minimal-correction run. TalkToFigma is a **Recommended secondary backend** for lightweight direct manipulation and Auto Layout operations; its full scientific A/D/E comparison remains untested here. Official Figma remains the control and fallback, but Starter MCP quota makes it unsuitable for repeated local evaluation runs.
+Figwright is the **Recommended default backend** for local scientific construction and local correction, based on the completed native-object, read-back, render, manual-edit, and minimal-correction run. TalkToFigma is a **Recommended secondary backend** for direct manipulation and Auto Layout operations: its scientific construction, edit, and correction path passed, but the larger-root export timed out and should be treated as a reliability limitation. Official Figma remains the control and fallback, but Starter MCP quota makes it unsuitable for repeated local evaluation runs.
 
 No change to `scientific-paper-figure/SKILL.md` is justified by this evidence yet. The backend-neutral contract remains the safer integration boundary.

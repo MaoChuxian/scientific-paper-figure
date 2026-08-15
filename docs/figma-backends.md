@@ -79,4 +79,4 @@ Raw logs and renders are retained outside the repository under `.evidence/backen
 
 ## Live TalkToFigma evidence
 
-TalkToFigma completed the equivalent native smoke sequence in the same dedicated file: document/selection/design reads, frame and text creation, node read-back, Auto Layout direction/padding/spacing, fill/stroke, hug sizing, move/resize, PNG export, and deletion read-back. The plugin channel was `qyf00z2n`. Full scientific A/D/E parity was not claimed because this checkpoint focused on restoring Figwright and avoiding another manual plugin switch.
+TalkToFigma completed a 44-step native/scientific run in the same dedicated file on channel `m4omllkl`: document/selection/design reads, six stage frames and labels, connector fixtures, Auto Layout direction/padding/spacing, fill/stroke, hug sizing, manual label/stage edits, overlap and clipping correction, and deletion read-back. The full-run PNG export timed out at the plugin boundary; the earlier TalkToFigma smoke export passed, so visual export is recorded as previously verified but flaky for this larger auto-layout root. The stale failed-run frames were explicitly deleted afterward.
