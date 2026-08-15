@@ -15,7 +15,7 @@ Evaluation date: 2026-08-15. Official Figma MCP remains unchanged and is the con
 | connectors | documented; fixture rectangles used in batch because direct line construction was not used | documented, not included in this smoke fixture | Scenario A and upstream inventory |
 | batch writes | empirically verified through sequential scenario batch; native batch API not isolated | not tested | Figwright run log |
 | stable node IDs / read-back | empirically verified | empirically verified | IDs and parent-child metadata |
-| screenshot / export | PNG screenshot empirically verified | empirically verified in smoke; failed on larger Scenario A root | `.evidence/backend-eval-20260815/` |
+| screenshot / export | PNG screenshot empirically verified | small smoke export passed; large-root export retest failed after ~30 s internal timeout | `.evidence/backend-eval-20260815/` |
 | structural QA / visual QA | empirically verified | structural QA empirically verified; visual QA smoke-level only because full export timed out | Read-back plus render evidence |
 | preserve manual edits | empirically verified (`SHAP (edited locally)` and moved stage retained) | empirically verified with before/after preserve-set equality on an untouched sibling panel | Figwright and Talk preserve fixtures |
 | minimal correction | empirically verified (overlap and clipped annotation only) | empirically verified (overlap and clipped annotation only) | Both correction fixtures |
@@ -34,7 +34,7 @@ Scores are 0-5 and reflect only observed evidence; untested rows are not treated
 | Manual-edit preservation | 10% | 4 | 3 |
 | Minimal correction | 10% | 4 | 3 |
 | Agent/tool ergonomics | 8% | 3 | 3 |
-| Reliability | 7% | 3 | 3 |
+| Reliability | 7% | 3 | 2 |
 | Community/maintenance | 3% | 3 | 3 |
 | Other justified evidence | 2% | 3 | 3 |
 | **Weighted total** | **100%** | **3.8 / 5** | **2.9 / 5** |
