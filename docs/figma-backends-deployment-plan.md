@@ -313,8 +313,12 @@ Use small intentional commits after each evidence boundary:
 
 Before each commit run link checks, ASCII check where applicable, `git diff --check`, and the existing Skill validator. Push only sanitized repository content. The final report must include deployment status, actual architecture, capability matrix, A/B results, recommendation, repository updates, test documentation, and remaining limitations.
 
-## 15. Current starting state
+## 15. Current execution status
 
 - Existing `scientific-paper-figure` Skill and five scenarios are present.
-- Official Figma Test A has live structure and screenshot evidence; Tests B-E are not yet live-passing because the Starter MCP limit was reached.
-- This document is the next executable checkpoint. No new backend is considered deployed until the stop condition in Section 1 is met.
+- Phase 0-1 are complete: environment inventory and primary-source research are recorded in `docs/figma-backends.md`.
+- Phase 2 is complete for Figwright: deployment, native read/write, read-back, render, manual-edit, correction, and cleanup evidence are recorded.
+- Phase 3 is complete for TalkToFigma: deployment, channel operation, native read/write, read-back, correction, cleanup, and controlled restart/reconnect evidence are recorded. The larger-root PNG export timeout remains a documented failure.
+- Phase 4 is complete with explicit capability/failure classifications; the earlier TalkToFigma smoke export passed while the larger scientific-root export timed out.
+- Phase 5 local core scenarios are complete enough for a recommendation. Official B-E control runs remain blocked by the Starter MCP quota; optional B/C are not required for the core decision and were not run.
+- `scientific-paper-figure/SKILL.md` remains unchanged. The backend-neutral architecture decision is recorded in `docs/architecture-decision.md`.

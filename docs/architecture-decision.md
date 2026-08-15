@@ -29,6 +29,12 @@ No scripts are required. Figma construction, inspection, screenshots, and file c
 
 Official Figma skills own Plugin API mechanics, file creation, node construction, fonts, Auto Layout mechanics, variables/styles, incremental calls, returned node IDs, and generic Figma error recovery.
 
+## Local Backend Decision
+
+The 2026-08-15 local evaluation keeps the main Skill backend-neutral. Figwright 0.4.0 is the recommended local default for structured scientific construction and minimal correction: native writes, read-back, fresh PNG renders, manual-edit operations, and local defect correction all passed in the dedicated test file. TalkToFigma 0.3.5 is a recommended secondary backend for direct manipulation and Auto Layout; its native scientific run and correction path passed, but a larger-root PNG export timed out. A controlled socket restart followed by plugin reconnect and a live `get_document_info` read-back passed on channel `2qf7edgv`.
+
+The official Figma integration remains the control and fallback. Its Starter MCP quota prevented new B-E control runs, so this decision does not claim official parity. No adapter is added yet: the evidence supports a small future capability contract, but not enough stable cross-backend coverage to justify changing `SKILL.md`.
+
 ## Modes
 
 - Create from manuscript, Method, brief, or concept.
@@ -37,4 +43,3 @@ Official Figma skills own Plugin API mechanics, file creation, node construction
 - Audit and correct an existing editable figure.
 
 All modes share a `figure_spec`, stable semantic node names, a preserve set, structure-plus-render review, and the same completion gate. This shared state is why a single orchestrator is preferable.
-
